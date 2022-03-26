@@ -14,7 +14,7 @@ const Admin = () => {
 
   const postsDisplay = posts.map((post) => (
     <li key={post.slug}>
-      <Link className="text-blue-600 underline" to={post.slug}>
+      <Link className="text-blue-600 underline" to={`/posts/${post.slug}`}>
         {post.title}
       </Link>
     </li>
