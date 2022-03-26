@@ -1,0 +1,88 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "settings": {
+    "react": {
+      "version": "16.9"
+    },
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
+  },
+  "extends": ["eslint:recommended", "eslint-config-prettier", "plugin:react/recommended", "plugin:sonarjs/recommended"],
+  "env": {
+    "es6": true,
+    "jest": true,
+    "browser": true,
+    "commonjs": true
+  },
+  "plugins": ["@typescript-eslint", "react", "react-hooks", "sonarjs", "import"],
+  "rules": {
+    "arrow-parens": "error",
+    "no-console": "error",
+    "no-alert": "error",
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": ["error", { "args": "none" }],
+    "max-depth": ["error", 3],
+    "no-magic-numbers": ["error", { "ignore": [-1, 0, 1, 2, 30, 60, 100, 1000], "ignoreArrayIndexes": true }],
+    "import/order": [
+      "error",
+      {
+        "groups": ["builtin", "external", "internal", "parent", "sibling", "index"],
+        "newlines-between": "always-and-inside-groups",
+        "alphabetize": {
+          "order": "asc"
+        }
+      }
+    ],
+    "import/no-extraneous-dependencies": "error",
+    "import/no-unresolved": "error",
+    "import/no-anonymous-default-export": "error",
+    "import/no-named-as-default": "error",
+    "import/no-useless-path-segments": ["error", {
+      "noUselessIndex": true
+    }],
+    "import/no-internal-modules": [ "error", {
+      "forbid": [
+        "/utils/**",
+        "/constants/**",
+        "/types/**",
+        "/styles/**",
+        "/api/**",
+        "/api-queries/**",
+        "/components/*/**",
+        "/pages/*/**",
+        "/hooks/*"
+      ]
+    }],
+    "prefer-const": "error",
+    "react/jsx-handler-names": ["error", { "eventHandlerPrefix": "handle", "eventHandlerPropPrefix": "on" }],
+    "react/no-unused-prop-types": "error",
+    "react/no-unused-state": "error",
+    "react/jsx-boolean-value": "error",
+    "react/jsx-curly-brace-presence": [
+      "error",
+      { "props": "never", "children": "never" }
+    ],
+    "react/sort-comp": [
+      "error",
+      {
+        "order": ["type-annotations", "static-methods", "lifecycle", "/^handle.+$/", "everything-else", "render"]
+      }
+    ],
+    "react/prefer-stateless-function": "error",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "sonarjs/no-nested-template-literals": "off"
+  },
+  "globals": {
+    "__webpack_nonce__": "writable"
+  }
+}
